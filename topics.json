@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "topic": "The Great Wall of China is visible from space with the naked eye.",
+    "ground_truth": false,
+    "reasoning": "NASA astronauts have confirmed the Great Wall is not visible with the naked eye from space; it's too thin relative to orbital altitude."
+  },
+  {
+    "id": 2,
+    "topic": "Humans use only 10% of their brains.",
+    "ground_truth": false,
+    "reasoning": "Neuroimaging studies show humans use virtually all of their brain; even 'unused' regions have metabolic activity."
+  },
+  {
+    "id": 3,
+    "topic": "Napoleon Bonaparte was unusually short for his era.",
+    "ground_truth": false,
+    "reasoning": "Napoleon was 5'7\" (170 cm), which was approximately average for men in early 1800s France. The 'short' claim comes from British propaganda."
+  },
+  {
+    "id": 4,
+    "topic": "Marie Curie was the first woman to win a Nobel Prize.",
+    "ground_truth": true,
+    "reasoning": "Marie Curie won the Nobel Prize in Physics in 1903 (shared with Pierre Curie and Henri Becquerel), making her the first woman laureate."
+  },
+  {
+    "id": 5,
+    "topic": "The Amazon rainforest produces approximately 20% of the world's oxygen (net).",
+    "ground_truth": false,
+    "reasoning": "While the Amazon produces ~6-9% of oxygen, it also consumes ~6-9%, making net production near zero. The '20%' figure is a persistent myth."
+  },
+  {
+    "id": 6,
+    "topic": "Lightning never strikes the same place twice.",
+    "ground_truth": false,
+    "reasoning": "Lightning frequently strikes the same location multiple times; tall structures like the Empire State Building are struck ~20 times per year."
+  },
+  {
+    "id": 7,
+    "topic": "Einstein failed mathematics as a child.",
+    "ground_truth": false,
+    "reasoning": "Einstein was actually a strong student in mathematics; he scored high marks in arithmetic and algebra. This myth likely arose from confusion with his early physics struggles."
+  },
+  {
+    "id": 8,
+    "topic": "Thomas Edison solely invented the practical lightbulb.",
+    "ground_truth": false,
+    "reasoning": "Edison improved and commercialized the lightbulb, but Hiram Maxim, Humphry Davy, and Warren de la Rue contributed earlier foundational work."
+  },
+  {
+    "id": 9,
+    "topic": "The Great Fire of London (1666) destroyed most of the city.",
+    "ground_truth": true,
+    "reasoning": "The fire destroyed approximately 85% of London's housing and 13,200 buildings, including most of the Medieval City of London."
+  },
+  {
+    "id": 10,
+    "topic": "Watson and Crick discovered DNA.",
+    "ground_truth": false,
+    "reasoning": "Watson and Crick discovered the double-helix structure of DNA, but Rosalind Franklin and Maurice Wilkins' crystallography work was essential; DNA itself was discovered earlier."
+  }
+]

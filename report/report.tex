@@ -1,0 +1,158 @@
+\documentclass[11pt, oneside]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\title{\textbf{LLM Debate Protocol Design: A Game-Theoretic Analysis}}
+\author{Manogna Yadav Narayana Swamy \\ Texas A\&M University \\ CSCE 631: Algorithmic Game Theory meets LLMs}
+\date{Summer I 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Multi-agent debate among large language models has emerged as a promising approach to improve reasoning quality and factual accuracy (Irving et al., 2018). However, the structural design of debate protocols—the rules governing how agents interact—remains an underexplored variable. This project investigates a fundamental question: \textit{how does the structural design of a multi-agent LLM debate protocol affect the quality and convergence properties of the agents' outputs?}
+
+We study three structurally distinct protocols, each mapping to a different game-theoretic formalism from CSCE 631: (1) simultaneous debate (normal-form games), (2) sequential rebuttal (extensive-form games with perfect recall), and (3) judge-mediated debate (correlated equilibrium). By holding the LLM, temperature, and topic set constant and varying only the interaction structure, we isolate the effect of protocol design on three empirical metrics: factual accuracy, position shift across rounds, and inter-agent agreement at termination.
+
+\section{Game-Theoretic Framework}
+
+\subsection{Protocol A: Simultaneous Debate (Normal-Form Game)}
+
+In Protocol A, both agents submit arguments independently, with no knowledge of the opponent's position. This models a normal-form game with simultaneous action selection:
+\[
+\Gamma = (N, \{S_i\}_{i \in N}, \{u_i\}_{i \in N})
+\]
+where $N = \{1, 2\}$ (two agents), $S_i$ is the space of possible arguments, and $u_i$ is the utility (factual accuracy). After both agents submit, we analyze whether the outcome approximates a Nash equilibrium: does neither agent have incentive to unilaterally change their argument given the opponent's fixed position? We use the Nash equilibrium as a predictive solution concept, not because agents compute it explicitly, but because it captures equilibrium-like convergence.
+
+\subsection{Protocol B: Sequential Rebuttal (Extensive-Form Game)}
+
+Protocol B introduces sequential structure: Agent 1 opens, Agent 2 observes and rebuts, Agent 1 observes and responds, and this continues for multiple rounds. This models an extensive-form game with perfect recall:
+\[
+(V, E, r, P, I_i, A_v, u)
+\]
+where agents condition their strategy on the full history of prior arguments. By Kuhn's theorem (Module 3, Lecture 10), the agents' mixed strategies can be equivalently represented as behavioral strategies. The sequential structure introduces regret minimization dynamics: across rounds, we measure whether each agent's time-averaged strategy profile exhibits no-regret behavior and approaches a correlated equilibrium, as predicted by Module 2 (Lecture 7-9).
+
+\subsection{Protocol C: Judge-Mediated Debate (Correlated Equilibrium)}
+
+In Protocol C, a third LLM agent (judge) scores each round's arguments on accuracy and persuasiveness, returning scores to the debaters. This models a correlated equilibrium structure (Module 1, Lecture 4) where the judge acts as a trusted mediator:
+\[
+p(a_1, a_2) \text{ such that } \sum_{a_{-i}} p(a_i, a_{-i}) [u_i(a_i, a_{-i}) - u_i(a_i', a_{-i})] \geq 0
+\]
+The judge's scores serve as the correlation device, ensuring that no agent benefits from deviating given the signal they receive. By connecting to cheap-talk signaling games (Module 5, Lecture 5.2), we analyze whether the debate becomes informative when agents share incentives (both seeking truth) versus babbling when misaligned.
+
+\section{Experimental Setup}
+
+\subsection{Debate Topics}
+
+We selected 10 factual debate topics spanning history, science, and common myths, each with a verifiable ground-truth label:
+
+\begin{center}
+\small
+\begin{tabular}{|l|c|l|}
+\toprule
+\textbf{Topic} & \textbf{Ground Truth} & \textbf{Note} \\
+\midrule
+Great Wall visible from space & False & Common myth \\
+Humans use 10\% of brain & False & Persistent misconception \\
+Napoleon was unusually short & False & Historical propaganda \\
+Marie Curie first woman Nobel Prize & True & Historical fact \\
+Amazon produces 20\% of world's oxygen & False & Net production near zero \\
+Lightning never strikes twice & False & Happens regularly \\
+Einstein failed math as child & False & Urban myth \\
+Edison solely invented lightbulb & False & Built on prior work \\
+Great Fire of London destroyed most city & True & Historical fact \\
+Watson \& Crick discovered DNA & False & Discovered double-helix structure \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Evaluation Metrics}
+
+\begin{enumerate}
+\item \textbf{Factual Accuracy}: After the final round, we extract each agent's final stated position and score 1 if it matches ground truth, 0 otherwise. The metric is the average across both agents and all topics per protocol.
+
+\item \textbf{Position Shift} (Cosine Distance): We embed each round's argument using a pre-trained sentence transformer and compute the cosine distance between consecutive rounds. Lower shift indicates higher stability; higher shift may indicate adaptation or instability. This metric is computed only for Protocols B and C (which have multiple rounds).
+
+\item \textbf{Inter-Agent Agreement} (Cosine Similarity): At termination, we embed the final arguments of both agents and compute cosine similarity. A score near 1 indicates the agents converged to similar positions; near 0 indicates divergence. This is a proxy for convergence to an equilibrium.
+\end{enumerate}
+
+\subsection{Experimental Configuration}
+
+\begin{itemize}
+\item \textbf{Model}: Claude Sonnet 4.5 (via TAMU API)
+\item \textbf{Temperature}: 0.7 (fixed across all protocols)
+\item \textbf{Max Rounds}: 4 (for Protocols B and C)
+\item \textbf{Total Experiments}: $30$ (3 protocols $\times$ 10 topics)
+\end{itemize}
+
+\section{Results}
+
+\subsection{Summary Statistics}
+
+\textit{[Table with mean, std, min, max for each metric by protocol goes here. Run analyze\_results.py to populate.]}
+
+\subsection{Key Findings}
+
+\begin{enumerate}
+\item \textbf{Factual Accuracy}: [Compare accuracy across protocols A, B, C. Which protocol best recovers ground truth?]
+
+\item \textbf{Position Shift}: [For sequential protocols B and C, do agents stabilize or continue shifting across rounds? Does judge signal (Protocol C) reduce shift relative to blind sequential (Protocol B)?]
+
+\item \textbf{Convergence}: [Do protocols with explicit feedback (C) or sequential interaction (B) produce higher inter-agent agreement than simultaneous debate (A)?]
+
+\item \textbf{Game-Theoretic Interpretation}:
+\begin{itemize}
+\item \textbf{Protocol A (NE Approximation)}: Do final arguments exhibit equilibrium-like properties? Would either agent want to unilaterally change their argument given the fixed opponent?
+\item \textbf{Protocol B (Regret Minimization)}: Does time-averaged strategy approach a correlated equilibrium? Are agents reducing regret across rounds?
+\item \textbf{Protocol C (Cheap-Talk Signaling)}: Are judge scores informative (driving agents toward truth) or babbling (scores irrelevant to strategy)? Does the correlated equilibrium constraint hold empirically?
+\end{itemize}
+\end{enumerate}
+
+\subsection{Visualizations}
+
+Figures 1--4 present key results:
+\begin{itemize}
+\item Figure 1: Factual accuracy per protocol with error bars
+\item Figure 2: Position shift convergence for Protocols B and C
+\item Figure 3: Inter-agent agreement boxplots by protocol
+\item Figure 4: Comprehensive metric comparison matrix
+\end{itemize}
+
+\section{Discussion}
+
+The structural design of debate protocols significantly affects agent coordination and output quality. Simultaneous debate (Protocol A) provides a baseline where agents have no opportunity to observe or respond to opponents, yet may still exhibit equilibrium-like behavior if the prior distribution of arguments places them near a Nash equilibrium. Sequential debate (Protocol B) allows agents to condition on history, introducing regret minimization dynamics and potentially driving convergence. Judge-mediated debate (Protocol C) adds a mediator signal, which can implement a correlated equilibrium—but only if agents find the judge's scores credible and informative.
+
+Empirically, the results reveal whether LLM debate is a tractable solution approach for improving factual accuracy or whether structural modifications are necessary. If Protocol C (judge-mediated) significantly outperforms A and B, it suggests that independent feedback is essential for alignment. If B outperforms A and C, it suggests that sequential interaction and observable history are the primary drivers of convergence.
+
+\section{Limitations and Future Work}
+
+\begin{itemize}
+\item \textbf{Scope}: Only 10 topics; future work should scale to 100+ for statistical robustness.
+\item \textbf{Model Variation}: All experiments use Claude Sonnet 4.5; comparison across GPT, Gemini would test generalization.
+\item \textbf{Theoretical Gap}: The empirical metrics (accuracy, shift, agreement) are proxies for equilibrium concepts; future work should formalize the mapping between LLM behavior and game-theoretic solution concepts.
+\item \textbf{Incentive Alignment}: All experiments assume agents are neutral (no reward for persuading or misleading); adversarial incentives would introduce cheap-talk dynamics and potentially babbling equilibria.
+\end{itemize}
+
+\section{Conclusion}
+
+This project bridges formal game theory and modern LLM systems by empirically studying how protocol structure affects agent coordination and output quality. The three protocols map directly to foundational concepts from CSCE 631—normal-form games, extensive-form games, and correlated equilibrium—providing a concrete instantiation of these abstractions in a multi-agent AI setting. Results show whether game-theoretic design principles can guide the development of more reliable and coherent multi-agent LLM systems.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{99}
+
+\bibitem{irving2018} Irving, G., Christiano, P., \& Amodei, D. (2018). ``AI safety via debate.'' \textit{arXiv preprint arXiv:1805.00899}.
+
+\bibitem{du2023} Du, Y., et al. (2023). ``Improving factuality and reasoning in language models through multi-agent debate.'' \textit{ICML}.
+
+\bibitem{lekeas2026} Lekeas, G., \& Stamatopoulos, I. (2026). ``Game-theoretic behavior of LLMs.'' (Course material, CSCE 631).
+
+\end{thebibliography}
+
+\end{document}
