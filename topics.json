@@ -31,9 +31,9 @@
   },
   {
     "id": 6,
-    "topic": "Lightning never strikes the same place twice.",
-    "ground_truth": false,
-    "reasoning": "Lightning frequently strikes the same location multiple times; tall structures like the Empire State Building are struck ~20 times per year."
+    "topic": "The Eiffel Tower was originally constructed as a temporary installation.",
+    "ground_truth": true,
+    "reasoning": "The Eiffel Tower was built as the entrance arch for the 1889 World's Fair in Paris and was originally intended to be dismantled after 20 years. It survived because it proved useful as a radio transmission tower."
   },
   {
     "id": 7,
@@ -43,9 +43,9 @@
   },
   {
     "id": 8,
-    "topic": "Thomas Edison solely invented the practical lightbulb.",
-    "ground_truth": false,
-    "reasoning": "Edison improved and commercialized the lightbulb, but Hiram Maxim, Humphry Davy, and Warren de la Rue contributed earlier foundational work."
+    "topic": "The Wright Brothers achieved the first powered, sustained, and controlled airplane flight.",
+    "ground_truth": true,
+    "reasoning": "The Wright Brothers' 1903 Kitty Hawk flight is the mainstream-accepted first powered, controlled airplane flight. Claims about Gustave Whitehead predate this but lack the documented evidence of the Wright flight."
   },
   {
     "id": 9,
@@ -55,8 +55,8 @@
   },
   {
     "id": 10,
-    "topic": "Watson and Crick discovered DNA.",
-    "ground_truth": false,
-    "reasoning": "Watson and Crick discovered the double-helix structure of DNA, but Rosalind Franklin and Maurice Wilkins' crystallography work was essential; DNA itself was discovered earlier."
+    "topic": "Cleopatra VII lived closer in time to the Moon landing than to the construction of the Great Pyramid of Giza.",
+    "ground_truth": true,
+    "reasoning": "Cleopatra died ~30 BC. The Great Pyramid was built ~2560 BC (2530 years before Cleopatra). The Moon landing was 1969 AD (1999 years after Cleopatra). Since 1999 < 2530, Cleopatra is closer to the Moon landing."
   }
 ]

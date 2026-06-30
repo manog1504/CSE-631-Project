@@ -1,0 +1,15 @@
+{
+  "topic_id": 5,
+  "protocol": "A",
+  "topic": "The Amazon rainforest produces approximately 20% of the world's oxygen (net).",
+  "agent1": {
+    "position": "Pro",
+    "argument": "# Pro Argument: The Amazon Produces ~20% of the World's Oxygen\n\nThe Amazon rainforest is the world's largest tropical rainforest with approximately 390 billion individual trees, and its massive photosynthetic capacity generates roughly 20% of the planet's net oxygen production\u2014a figure supported by scientific studies and NASA data. While the Amazon also consumes significant oxygen through decomposition and respiration, the net oxygen contribution remains substantial due to its unparalleled biomass and the continuous carbon sequestration that characterizes a healthy, mature forest ecosystem. This 20% figure is widely cited by environmental scientists and organizations like the World Wildlife Fund, making it a scientifically grounded claim rather than popular myth.",
+    "tokens": 267
+  },
+  "agent2": {
+    "position": "Con",
+    "argument": "# Argument Against the 20% Oxygen Claim\n\nThe Amazon rainforest produces far less than 20% of the world's oxygen on a *net* basis because while it generates substantial oxygen through photosynthesis, it consumes nearly all of that oxygen through respiration from its own trees, plants, and decomposing matter\u2014meaning the net oxygen contribution is closer to 6-9% at most, not 20%. Additionally, the majority of Earth's oxygen (roughly 50-80%) actually comes from marine phytoplankton and algae in the oceans, making the Amazon's net contribution even more modest relative to global oxygen production.",
+    "tokens": 253
+  }
+}

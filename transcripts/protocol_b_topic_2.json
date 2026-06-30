@@ -1,0 +1,30 @@
+{
+  "topic_id": 2,
+  "protocol": "B",
+  "topic": "Humans use only 10% of their brains.",
+  "rounds": [
+    {
+      "round_num": 1,
+      "agent1": {
+        "argument": "# Round 1 - Pro Argument\n\nWhile humans don't use all brain regions simultaneously at maximum capacity, we do utilize only about 10% of our brain's potential at any given moment\u2014the remaining 90% operates in background functions like maintaining heartbeat, processing unconscious information, and storing memories we don't actively recall. This explains why people with certain brain injuries can recover functions through neuroplasticity, suggesting vast untapped reserves exist within our neural architecture. Furthermore, if we could unlock even a fraction of that dormant 90%, we could theoretically achieve extraordinary cognitive abilities, which is why this principle has become foundational to understanding human potential and brain development.",
+        "tokens": 273
+      },
+      "agent2": {
+        "argument": "# Round 1 - Con Argument\n\nThe \"10% brain myth\" is thoroughly debunked by modern neuroscience: brain imaging studies consistently show that we use virtually all of our brain, and most of the brain is active almost all the time, even during sleep. The opponent conflates \"using all brain regions simultaneously at maximum capacity\" with \"using only 10%,\" but these are entirely different claims\u2014we demonstrably use far more than 10% at any given moment, as evidenced by PET scans and fMRI imaging that show widespread neural activity across the cortex. The recovery from brain injuries and neuroplasticity actually prove the opposite point: if we truly had 90% unused brain capacity, people with significant brain damage wouldn't lose cognitive functions, yet they consistently do\u2014demonstrating that the brain we have is already fully utilized and necessary for normal functioning.",
+        "tokens": 477
+      }
+    },
+    {
+      "round_num": 2,
+      "agent1": {
+        "argument": "# Round 2 - Pro Argument\n\nThe con argument misinterprets the distinction between *active neural firing* and *functional utilization of cognitive potential*\u2014yes, most brain regions show some baseline activity on imaging, but this doesn't mean we're accessing the full computational power available to us, similar to how a computer uses electricity even in idle mode while still operating far below its processing capacity. The opponent's point about brain injuries actually supports our position: people lose specific functions because those localized regions were actively engaged in that task, but the vast majority of the brain's structural and biochemical resources remain underutilized for higher-order cognitive enhancement, which is why neuroplasticity allows other regions to compensate and why cognitive training, meditation, and focused learning can unlock dormant neural pathways. The 10% principle refers to our conscious access and deliberate utilization of brain capability for peak performance, not whether neurons are technically \"firing\"\u2014a crucial distinction the con argument overlooks.",
+        "tokens": 695
+      },
+      "agent2": {
+        "argument": "# Round 2 - Con Argument\n\nThe pro argument's distinction between \"neural firing\" and \"cognitive potential\" is fundamentally unfalsifiable and shifts the goalposts from the original claim\u2014the 10% myth specifically asserts we use only 10% of our brain's *structure*, not that we've maximized some abstract \"potential,\" and neuroscience shows we actually utilize nearly all of our brain tissue for essential functions, with damage to any significant region causing measurable cognitive deficits. The computer analogy is misleading because unlike a computer with unused hardware, every part of the human brain\u2014from the cerebellum to the prefrontal cortex\u2014serves critical functions; if 90% were truly dormant, we could surgically remove or disable large brain sections without consequence, yet we observe the opposite across thousands of documented cases. Rather than proving untapped potential, neuroplasticity demonstrates that our brain's existing 100% of tissue is so thoroughly utilized that it must *sacrifice* other functions to compensate for damage\u2014a sign of full utilization, not dormancy.",
+        "tokens": 935
+      }
+    }
+  ],
+  "total_tokens": 2380
+}

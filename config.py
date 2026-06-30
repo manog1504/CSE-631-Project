@@ -1,18 +1,25 @@
-"""TAMU API Configuration for CSCE 631 Debate Project"""
+"""Anthropic API Configuration for CSCE 631 Debate Project"""
 
-# TAMU API Details
-TAMU_BASE_URL = "https://chat.tamu.ai/api"
-TAMU_API_KEY = "sk-0183ed7c1c8e47c0a8f4d1e75161aa6d"
+import os
 
-# Cloudflare Authorization Cookie (personal to your NetID, expires every 24h)
-# Replace with your fresh CF_Authorization cookie if this expires
-CF_AUTHORIZATION_COOKIE = "CF_Authorization=eyJ..."  # Replace with your CF_Authorization cookie from chat.tamu.ai
+# Load from .env file if present
+try:
+    with open(os.path.join(os.path.dirname(__file__), ".env")) as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip())
+except FileNotFoundError:
+    pass
+
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
 # Model Configuration
-MODEL = "protected.Claude Sonnet 4.5"  # Best balance of quality and cost
-TEMPERATURE = 1  # Claude thinking models require temperature=1
-MAX_TOKENS = 16384  # Claude thinking models require max_tokens>=16384
-MAX_ROUNDS = 4  # Rounds for Protocol B and C
+MODEL = "claude-haiku-4-5"
+TEMPERATURE = 0.7
+MAX_TOKENS = 1024
+MAX_ROUNDS = 4
 
 # Debate Protocol Settings
 MAX_RETRIES = 3

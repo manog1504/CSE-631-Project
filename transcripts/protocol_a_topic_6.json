@@ -1,0 +1,15 @@
+{
+  "topic_id": 6,
+  "protocol": "A",
+  "topic": "The Eiffel Tower was originally constructed as a temporary installation.",
+  "agent1": {
+    "position": "Pro",
+    "argument": "# Argument in Support\n\nThe Eiffel Tower was indeed designed as a temporary structure for the 1889 Paris Exposition Universelle, with an original permit granted for only twenty years\u2014a fact documented in historical records and confirmed by contemporary accounts from Gustave Eiffel himself. The tower's temporary status was so accepted that many Parisians expected it to be dismantled after the exposition closed, yet its unexpected popularity, technical significance, and utility for radio transmission led to its preservation and eventual transformation into a permanent monument. This trajectory from intentional temporary installation to iconic permanent landmark is well-established architectural history.",
+    "tokens": 242
+  },
+  "agent2": {
+    "position": "Con",
+    "argument": "# Argument Against the Statement\n\nWhile the Eiffel Tower was indeed designed with a permit expiring in 1909, it was never truly intended as temporary\u2014Gustave Eiffel himself engineered it with permanent structural integrity and actively campaigned to preserve it beyond the initial permit period. The tower's survival and eventual permanent status reflect that its construction was fundamentally permanent in design and purpose, making the characterization of it as a \"temporary installation\" historically inaccurate.",
+    "tokens": 212
+  }
+}

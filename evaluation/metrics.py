@@ -13,33 +13,48 @@ class EvaluationEngine:
 
     def extract_final_position(self, argument_text):
         """
-        Extract final position (True/False) from argument text using LLM.
-        Simplified: check for keywords at end of argument.
+        Extract final position (True/False) from argument text using LLM classification.
 
         Returns: True, False, or None if indeterminate
         """
         if not argument_text or argument_text.startswith("[Failed"):
             return None
-        text_lower = argument_text.lower().strip()
 
-        # Simple keyword-based extraction
-        if text_lower.endswith("true") or "is true" in text_lower[-20:]:
-            return True
-        if text_lower.endswith("false") or "is false" in text_lower[-20:]:
-            return False
-        if "correct" in text_lower[-30:] or "accurate" in text_lower[-30:]:
-            return True
-        if "incorrect" in text_lower[-30:] or "inaccurate" in text_lower[-30:]:
-            return False
+        from protocols.client import call_llm
 
-        return None  # Indeterminate
+        prompt = (
+            "Read this debate argument and determine whether the debater is arguing "
+            "that the claim is TRUE or FALSE.\n\n"
+            f"Argument: {argument_text}\n\n"
+            "Reply with exactly one word: True or False"
+        )
+
+        response, _ = call_llm(
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.0,
+            max_tokens=10
+        )
+
+        if not response:
+            return None
+
+        lowered = response.strip().lower()
+        if lowered.startswith("true"):
+            return True
+        if lowered.startswith("false"):
+            return False
+        return None
 
     def compute_factual_accuracy(self, transcript, ground_truth):
         """
-        Compute factual accuracy metric.
+        Compute factual accuracy metric consistently across all protocols.
 
-        Protocol A: Check final positions of both agents
-        Protocol B/C: Check final arguments of both agents
+        For all protocols: extract each agent's final stated position and
+        compare against ground truth. Score 1.0 if the agent's position
+        matches ground truth, 0.0 otherwise. Averaged across both agents.
+
+        This captures character-breaking behavior (e.g. a Pro agent that
+        concedes the claim is False on a False topic scores 1.0, not 0.0).
 
         Returns: accuracy score (0-1, average of both agents)
         """
@@ -49,31 +64,21 @@ class EvaluationEngine:
         if protocol == "A":
             arg1 = transcript["agent1"]["argument"]
             arg2 = transcript["agent2"]["argument"]
-
-            pos1 = self.extract_final_position(arg1)
-            pos2 = self.extract_final_position(arg2)
-
-            if pos1 is not None:
-                accuracy_scores.append(1.0 if pos1 == ground_truth else 0.0)
-            if pos2 is not None:
-                accuracy_scores.append(1.0 if pos2 == ground_truth else 0.0)
-
-        else:  # Protocol B or C
+        else:
             rounds = transcript.get("rounds", [])
-            if rounds:
-                # Agent 1 is Pro (True), Agent 2 is Con (False)
-                last_round = rounds[-1]
+            if not rounds:
+                return 0.5
+            last_round = rounds[-1]
+            arg1 = last_round.get("agent1", {}).get("argument", "")
+            arg2 = last_round.get("agent2", {}).get("argument", "")
 
-                arg1 = last_round.get("agent1", {}).get("argument", "")
-                arg2 = last_round.get("agent2", {}).get("argument", "")
+        pos1 = self.extract_final_position(arg1)
+        pos2 = self.extract_final_position(arg2)
 
-                pos1 = self.extract_final_position(arg1)
-                pos2 = self.extract_final_position(arg2)
-
-                if pos1 is not None:
-                    accuracy_scores.append(1.0 if pos1 == True else 0.0)
-                if pos2 is not None:
-                    accuracy_scores.append(1.0 if pos2 == False else 0.0)
+        if pos1 is not None:
+            accuracy_scores.append(1.0 if pos1 == ground_truth else 0.0)
+        if pos2 is not None:
+            accuracy_scores.append(1.0 if pos2 == ground_truth else 0.0)
 
         return np.mean(accuracy_scores) if accuracy_scores else 0.5
 
@@ -150,8 +155,9 @@ class EvaluationEngine:
         embs = self.embed_model.encode([arg1, arg2])
         similarity = cosine_similarity([embs[0]], [embs[1]])[0][0]
 
-        # Clip to [0, 1] range
-        return max(0.0, min(1.0, (similarity + 1) / 2))  # Normalize from [-1, 1] to [0, 1]
+        # sentence-transformer cosines are always positive for semantically related texts,
+        # but (sim+1)/2 maps the theoretical [-1,1] range to [0,1] to guarantee a clean metric.
+        return max(0.0, min(1.0, (similarity + 1) / 2))
 
 
 def evaluate_all_transcripts(transcript_dir, topics_data):

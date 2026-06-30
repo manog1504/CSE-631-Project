@@ -1,0 +1,15 @@
+{
+  "topic_id": 8,
+  "protocol": "A",
+  "topic": "The Wright Brothers achieved the first powered, sustained, and controlled airplane flight.",
+  "agent1": {
+    "position": "Pro",
+    "argument": "# PRO Argument\n\nThe Wright Brothers definitively achieved the first powered, sustained, and controlled airplane flight on December 17, 1903, at Kitty Hawk, North Carolina, when Orville Wright's flight lasted 12 seconds and covered 120 feet\u2014meeting all three essential criteria that distinguish their achievement from mere gliding experiments. Their meticulous engineering approach, including their wind tunnel experiments and innovative three-axis control system, enabled true controlled flight rather than the uncontrolled descents of previous aviation attempts, a distinction documented by credible witnesses and the Smithsonian Institution's historical records. No other individuals or groups before them had demonstrated the combination of powered propulsion, sustained flight duration, and pilot-controlled direction, making the Wright Brothers' accomplishment the legitimate foundation of modern aviation.",
+    "tokens": 282
+  },
+  "agent2": {
+    "position": "Con",
+    "argument": "# CON Argument\n\nWhile the Wright Brothers made significant contributions to aviation, crediting them with the \"first\" powered flight is historically contested\u2014Gustav Whitehead reportedly achieved powered flight in Connecticut in 1901, two years before the Wrights' 1903 flight at Kitty Hawk, though documentation remains disputed. Additionally, the Wright Brothers' achievement, though remarkable, involved only 12 seconds of flight over 120 feet, whereas earlier experimenters like Otto Lilienthal had achieved sustained, controlled gliding flight that some argue better demonstrates the practical mastery of flight principles that define true aviation progress.",
+    "tokens": 242
+  }
+}

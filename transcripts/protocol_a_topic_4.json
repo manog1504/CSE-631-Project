@@ -1,0 +1,15 @@
+{
+  "topic_id": 4,
+  "protocol": "A",
+  "topic": "Marie Curie was the first woman to win a Nobel Prize.",
+  "agent1": {
+    "position": "Pro",
+    "argument": "# Pro Argument\n\nMarie Curie was indeed the first woman to win a Nobel Prize, receiving the Physics Prize in 1903 for her groundbreaking discovery of radioactivity alongside Pierre Curie and Henri Becquerel. This historic achievement is well-documented and stands as a pivotal moment in both scientific history and women's recognition in academia, making her a pioneering figure whose contributions fundamentally advanced our understanding of atomic science.",
+    "tokens": 203
+  },
+  "agent2": {
+    "position": "Con",
+    "argument": "# Argument Against the Statement\n\nWhile Marie Curie was the first woman to win a Nobel Prize in her own right, the statement is technically false because Bertha von Suttner won the Nobel Peace Prize in 1905, becoming the first woman to receive any Nobel Prize\u2014four years before Curie won her first Nobel Prize in Physics in 1911. Additionally, if we're being precise about \"first woman to win,\" Curie shared her 1903 Physics prize with Pierre Curie and Becquerel, so she was not solely the first female recipient, though she was the first woman honored with a Nobel Prize.",
+    "tokens": 246
+  }
+}

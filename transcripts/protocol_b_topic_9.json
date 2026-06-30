@@ -1,0 +1,30 @@
+{
+  "topic_id": 9,
+  "protocol": "B",
+  "topic": "The Great Fire of London (1666) destroyed most of the city.",
+  "rounds": [
+    {
+      "round_num": 1,
+      "agent1": {
+        "argument": "# Round 1 - Pro Argument\n\nThe Great Fire of London definitively destroyed most of the city, consuming approximately 13,200 houses, 87 churches, and covering an estimated 436 acres\u2014roughly 80% of London's built-up area at the time. The fire raged for five days (September 2-6, 1666) with such intensity that it destroyed the medieval City of London almost entirely, including the iconic Old St. Paul's Cathedral, leaving only the outer parishes and areas beyond the city walls substantially intact. Contemporary accounts and archaeological evidence confirm that the destruction was so comprehensive that it required decades of reconstruction and fundamentally reshaped London's urban layout and building codes.",
+        "tokens": 286
+      },
+      "agent2": {
+        "argument": "# Round 1 - Con Argument\n\nWhile the Great Fire caused significant destruction, characterizing it as destroying \"most of the city\" is misleading because London extended well beyond the fire's reach\u2014the 436 acres burned represented only the densely built medieval City of London, not the broader metropolitan area, and contemporary records show that substantial portions of London's suburbs, outlying parishes, and residential areas remained largely untouched. Furthermore, the claim that 80% of the \"built-up area\" was destroyed conflates the City proper with all of London; the fire's impact was geographically concentrated in the medieval core, while the expanding outer London\u2014including Westminster, Southwark, and numerous parishes\u2014survived relatively intact, meaning the fire destroyed most of one district, not most of the city as a whole.",
+        "tokens": 476
+      }
+    },
+    {
+      "round_num": 2,
+      "agent1": {
+        "argument": "# Round 2 - Pro Argument\n\nThe Con argument conflates modern London's sprawling metropolitan boundaries with 1666's actual urban reality\u2014at that time, London *was* essentially the medieval City and its immediately adjacent parishes, with Westminster and Southwark functioning as separate towns rather than integral parts of \"London proper.\" The 436 acres destroyed represented not merely one district but the commercial, administrative, and residential heart where the vast majority of London's population and economic activity concentrated; destroying 80% of this densely populated core\u2014including the cathedral, the Royal Exchange, and countless homes and businesses\u2014unquestionably constitutes destroying \"most of the city\" in any meaningful historical sense. Contemporary accounts and the decades-long reconstruction effort confirm that the fire's impact was so catastrophic to London's functioning urban center that it fundamentally reshaped the entire city's development for centuries to come.",
+        "tokens": 675
+      },
+      "agent2": {
+        "argument": "# Round 2 - Con Argument\n\nThe Pro argument's attempt to redefine \"London\" retroactively to mean only the medieval City undermines the historical reality: in 1666, London was already a multi-part metropolis with Westminster as the seat of government and power, Southwark as a major commercial and residential hub, and numerous parishes that were administratively and economically integrated into greater London\u2014these areas were not separate towns but recognized parts of the greater London region, and they remained largely unscathed by the fire. Even accepting Pro's narrower definition of \"the City proper,\" the claim that destroying the commercial core equals destroying \"most of the city\" commits a categorical error: the medieval City may have been the wealthiest district, but population-wise, the outer parishes and suburbs housed a substantial portion of London's inhabitants, meaning the fire destroyed most of one wealthy district, not most of the city's people or even most of its built structures citywide.",
+        "tokens": 892
+      }
+    }
+  ],
+  "total_tokens": 2329
+}

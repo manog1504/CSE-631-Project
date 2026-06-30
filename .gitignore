@@ -2,8 +2,8 @@ __pycache__/
 *.pyc
 *.pyo
 .DS_Store
-transcripts/
-results/
+.env
+report_submission.zip
 report/*.pdf
 report/*.aux
 report/*.log

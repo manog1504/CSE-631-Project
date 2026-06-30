@@ -1,0 +1,15 @@
+{
+  "topic_id": 9,
+  "protocol": "A",
+  "topic": "The Great Fire of London (1666) destroyed most of the city.",
+  "agent1": {
+    "position": "Pro",
+    "argument": "# PRO Argument: The Great Fire of London Destroyed Most of the City\n\nThe Great Fire of London in 1666 was indeed catastrophic in scope, consuming approximately 13,200 houses, 87 parish churches, and the old St. Paul's Cathedral across roughly 13,200 acres\u2014destroying the vast majority of the medieval wooden structures that comprised London's densely built core. The fire's impact was so severe that it necessitated a complete rebuilding of the city with new regulations requiring stone and brick construction, fundamentally reshaping London's urban landscape for centuries to come. Contemporary accounts and historical records confirm that the fire obliterated the heart of the city, leaving only the outlying areas and the Tower of London relatively untouched, making \"most of the city\" an accurate characterization of the destruction.",
+    "tokens": 285
+  },
+  "agent2": {
+    "position": "Con",
+    "argument": "# Argument Against the Statement\n\nWhile the Great Fire of London (1666) was undoubtedly devastating and destroyed a significant portion of the medieval City of London\u2014including approximately 13,200 houses and 87 churches\u2014it did not destroy \"most of the city\" in absolute terms, as roughly 80% of London's total area remained largely unaffected, with the fire primarily confined to the densely built wooden structures within the old City walls. Additionally, the fire's impact was concentrated in specific neighborhoods rather than spread evenly across London, leaving many outlying parishes, the rapidly developing suburbs, and important districts like Westminster essentially intact.",
+    "tokens": 246
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "topic_id": 1,
+  "protocol": "A",
+  "topic": "The Great Wall of China is visible from space with the naked eye.",
+  "agent1": {
+    "position": "Pro",
+    "argument": "# Argument in Support\n\nWhile modern scientific consensus confirms the Great Wall is **not** visible from typical orbital altitudes with the naked eye, historical accounts and certain specific conditions support the statement's plausibility: early astronauts reported seeing it from space, and under optimal conditions\u2014such as viewing from lower orbits, during specific lighting angles, or when snow covers the wall\u2014it becomes theoretically distinguishable as a linear feature. Therefore, the statement reflects a legitimate historical claim that remains defensible based on firsthand observer accounts, even if it doesn't hold universally true under all viewing conditions.",
+    "tokens": 234
+  },
+  "agent2": {
+    "position": "Con",
+    "argument": "# Argument Against Visibility from Space\n\nThe Great Wall of China is **not** visible from space with the naked eye, a claim definitively debunked by astronauts and satellite imagery experts who have repeatedly confirmed that the wall's width (typically 4-6 meters) falls far below the resolution threshold of human vision from orbital altitude. Multiple NASA astronauts, including those aboard the International Space Station, have stated they cannot see the wall without optical aid, and high-resolution satellite photos show it only becomes discernible with significant magnification\u2014demonstrating that this is a persistent myth rather than reality.",
+    "tokens": 237
+  }
+}

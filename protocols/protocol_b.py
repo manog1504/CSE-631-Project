@@ -80,7 +80,8 @@ Please provide your argument for Round {round_num + 1}:"""
         total_tokens += tokens1["total_tokens"]
         history.append((1, arg1))
 
-        # Agent 2 argues CON (sees Agent 1's response)
+        # Agent 2 sees Agent 1's current-round argument, so history is rebuilt here
+        # (not reused from above) to include arg1 before Agent 2 responds.
         history_text2 = "\n\nPrevious arguments in this debate:\n"
         for i, (prev_agent, prev_arg) in enumerate(history, 1):
             history_text2 += f"- Agent {prev_agent} (Turn {i}): {prev_arg}\n"
